@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🎯 Test Monitor - Inject</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        button { background: blue; color: white; padding: 15px; font-size: 18px; }
+        .code { background: black; color: lime; padding: 15px; }
+    </style>
+</head>
+<body>
+    <h1>🎯 TEST MONITOR KODI</h1>
+    
+    <p>Quyidagi kodni test kompyuteri brauzer konsoliga copy-paste qiling:</p>
+    
+    <div class="code" id="codeBlock">
+        // KOD AVTOMATIK YOZILADI...
+    </div>
+    
+    <button onclick="copyCode()">📋 KODNI NUSXALASH</button>
+    
+    <script>
+        // inject.js kodini yuklash va ko'rsatish
+        fetch('inject.js')
+            .then(response => response.text())
+            .then(code => {
+                document.getElementById('codeBlock').textContent = code;
+            });
+        
+        function copyCode() {
+            const code = document.getElementById('codeBlock').textContent;
+            navigator.clipboard.writeText(code);
+            alert('✅ Kod nusxalandi! Endi brauzer konsoliga yopishtiring.');
+        }
+    </script>
+</body>
+</html>
